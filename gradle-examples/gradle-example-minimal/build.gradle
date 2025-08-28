@@ -22,6 +22,11 @@ allprojects {
         maven {
             url "http://127.0.0.1:8081/artifactory/libs-release"
         }
+
+        metadataSources {
+            artifact()   // artifacts files first
+            mavenPom()   // Then POM files
+        }
     }
 }
 
