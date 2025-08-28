@@ -13,26 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id("com.jfrog.artifactory") version "5.+"
-}
 
 allprojects {
     repositories {
         maven {
             url "http://127.0.0.1:8081/artifactory/libs-release"
-        }
-
-        metadataSources {
-            artifact()   // artifacts files first
-            mavenPom()   // Then POM files
+            metadataSources {
+                artifact()   // artifacts files first
+                mavenPom()   // Then POM files
+            }
         }
     }
 }
 
 version = currentVersion
 
-apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
